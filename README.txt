@@ -1,14 +1,16 @@
 Fortran codes for computation of solid Earth tidal effects on all-element geodetic variations on or outside geoid
 Chuanyin Zhang, zhangchy@casm.ac.cn, Chinese Academy of Surveying & Mapping
+
 [Algorithm purpose]
 Given the longitude, latitude, ellipsoidal height and forecast time of the calculation point, compute the solid tidal effects on the geoid or height anomaly (mm), ground gravity (μGal), gravity disturbance (μGal), ground tilt (SW, to the south and to the west, mas), vertical deflection (SW, to the south and to the west, mas), horizontal displacement (EN, to the east and to the north, mm), ground radial displacement (mm), ground normal or orthometric height (mm), radial gravity gradient (10μE) or horizontal gravity gradient (NW, to the north and to the west, 10μE).
 The algorithm adopts the same numerical standards and analytical algorithms of the solid Earth tidal effects on geopotential and geodetic site displacement that are compatible with the IERS Conventions (2010), and compute uniformly the solid Earth tidal effects on all-element geodetic variations considering the latitude and frequency dependence of the Love numbers, so as to maintain rigorously the analytical relationships between the solid Earth tidal effects on various geodetic variations.
 The Earth's tide generating potential (TGP) from the moon is calculated from 2nd to 6th degree, that from the sun from 2nd to 3rd degree, and that from other planets at the 2nd degree.
  
 [Computation Output]
-tdn(14): the solid tidal effects on all-element geodetic variations.
-tdn(1:14) stores the solid tidal effects on 10 kinds of geodetic variations, which are the solid tidal effects on height anomaly tdn(1) (mm), ground gravity #tdn(2) (μGal), gravity disturbance tdn(3) (μGal), ground tilt #tdn(4:5) (SW, to the south and to the west, mas), vertical deflection tdn(6:7) (SW, to the south and to the west, mas), horizontal displacement #tdn(8:9) (EN, to the east and to the north, mm), ground radial displacement #tdn(10) (mm), ground normal or orthometric height #tdn(11) (mm), radial gravity gradient tdn(12 )(10μE) or horizontal gravity gradient tdn(13:14) (NW, to the north and to the west, 10μE).
+ tdn(14): the solid tidal effects on all-element geodetic variations.
+ tdn(1:14) stores the solid tidal effects on 10 kinds of geodetic variations, which are the solid tidal effects on height anomaly tdn(1) (mm), ground gravity #tdn(2) (μGal), gravity disturbance tdn(3) (μGal), ground tilt #tdn(4:5) (SW, to the south and to the west, mas), vertical deflection tdn(6:7) (SW, to the south and to the west, mas), horizontal displacement #tdn(8:9) (EN, to the east and to the north, mm), ground radial displacement #tdn(10) (mm), ground normal or orthometric height #tdn(11) (mm), radial gravity gradient tdn(12 )(10μE) or horizontal gravity gradient tdn(13:14) (NW, to the north and to the west, 10μE).
 The calculation point can be on the ground, low altitude, satellite, ocean or underwater space. The geodetic variations abvove marked with # are valid only when the site is fixed with the solid Earth.
+
 [Geophysical models]
 (1) The JPL Planetary Ephemeris DE440 file JEPH.440 (from 1850 to 2201).
 (2) The IERS Earth orientation parameters (EOP) time series file IERSeopc04.dat.
@@ -67,6 +69,7 @@ The calculation point can be on the ground, low altitude, satellite, ocean or un
  (14) Other auxiliary modules
   PickRecord(str0, kln, rec, nn); tmcnt(tm, iyr, imo, idy, ihr, imn, sec)
   mjdtotm(mjd0, ltm); tmtostr(tm, tmstr)
+
 [For compile and link]
   Fortran90, 132 Columns fixed format. Fortran compiler for any operating system. No external link library required.
 [Algorithmic formula] ETideLoad4.5 User Reference (https://www.zcyphygeodesy.com/en/)
