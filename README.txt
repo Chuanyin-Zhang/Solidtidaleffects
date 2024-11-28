@@ -64,7 +64,7 @@ The calculation point can be on the ground, low altitude, satellite, ocean or un
  (13) IAU SOFA2000 library
   TRStoCRS(tm, eoput1, TRStCRS); GMST2000(UTA, UTB, TTA, TTB);
   RBPN2000(X, Y, S, RBPN)；……
- (14) Orhter auxiliary modules
+ (14) Other auxiliary modules
   PickRecord(str0, kln, rec, nn); tmcnt(tm, iyr, imo, idy, ihr, imn, sec)
   mjdtotm(mjd0, ltm); tmtostr(tm, tmstr)
 [For compile and link]
